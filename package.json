@@ -1,0 +1,24 @@
+{
+  "name": "multi-tenant-app",
+  "version": "1.0.0",
+  "description": "Multi-tenant Express application integrated with Auth0 platform.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorge-tb/Multi-tenant-App.git"
+  },
+  "keywords": [
+    "Multi-tenant",
+    "ExpressJS",
+    "Auth0"
+  ],
+  "author": "Jorge Tomé Blanco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jorge-tb/Multi-tenant-App/issues"
+  },
+  "homepage": "https://github.com/jorge-tb/Multi-tenant-App#readme"
+}
