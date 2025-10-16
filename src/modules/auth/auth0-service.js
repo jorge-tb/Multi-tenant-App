@@ -30,6 +30,18 @@ export class Auth0Service {
     }
 
     /**
+     * Get Auth0 configured routes
+     * @returns {object} Routes object with login, logout, and callback paths
+     */
+    getRoutes() {
+        return {
+            login: this.config.routes?.login || '/login',
+            logout: this.config.routes?.logout || '/logout',
+            callback: this.config.routes?.callback || '/callback'
+        };
+    }
+
+    /**
      * Check if user is authenticated
      * @param {import('express').Request} req - Express request
      * @returns 
@@ -40,7 +52,7 @@ export class Auth0Service {
 
     _validateConfig() {
         const required = ['secret', 'baseURL', 'clientID', 'issuerBaseURL'];
-        const missing = required.filter(key => !this.condif[key]);
+        const missing = required.filter(key => !this.config[key]);
 
         if (missing.length > 0) {
             throw new Error(`Missing Auth0 configuration: ${missing.join(', ')}`);

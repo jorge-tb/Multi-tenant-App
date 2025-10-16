@@ -6,7 +6,7 @@ export class Auth0Config {
         const baseConfig = {
             authRequired: false,
             auth0Logout: true,
-            secret: process.env.AUT0_SECRET,
+            secret: process.env.AUTH0_SECRET,
             baseURL: process.env.AUTH0_BASE_URL,
             clientID: process.env.AUTH0_CLIENT_ID,
             issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL
@@ -34,5 +34,11 @@ export class Auth0Config {
         };
 
         return envConfigs[environment] || envConfigs.development;
+    }
+
+    static configureDevelopmentSSL() {
+        if (process.env.NODE_ENV !== 'production') {
+            process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+        }
     }
 }
