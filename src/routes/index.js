@@ -5,7 +5,8 @@ import { HelloController } from "../controllers/hello.js";
  * @param {import('express').Application} app  - The Express app
  */
 function setRoutes(app) {
-    const helloController = new HelloController();
+    const { service: auth0Service } = app.locals.auth;
+    const helloController = new HelloController(auth0Service);
     app.get('/', helloController.hello.bind(helloController));
 }
 
